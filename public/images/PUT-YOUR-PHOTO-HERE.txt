@@ -1,0 +1,8 @@
+Copy your real photo into this folder and name it exactly:
+
+    profile.jpg
+
+Full path: client/public/images/profile.jpg
+
+Until the file exists, the site shows a gradient box with your initials instead of a photo.
+Do not use a stock or generated face. Restart nothing: refresh the browser after copying.
