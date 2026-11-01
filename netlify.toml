@@ -1,0 +1,17 @@
+[build]
+  command = "npm install && npm run build"
+  publish = "client/dist"
+
+# Forward all /api requests to the Express API on Render.
+# Replace the URL with your own Render service URL.
+[[redirects]]
+  from = "/api/*"
+  to = "https://portfolio-api.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+# Single-page app fallback so /admin and /login work on refresh.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
