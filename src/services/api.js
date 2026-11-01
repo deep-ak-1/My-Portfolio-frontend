@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-// Empty in local development (the Vite proxy handles /api).
-// Set to the Render URL in Netlify so the browser calls the API directly.
 const API_ORIGIN = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
 
 export const api = axios.create({
@@ -10,7 +8,6 @@ export const api = axios.create({
   timeout: 15000,
 });
 
-// If an /api request ever returns a web page instead of data, report that clearly.
 api.interceptors.response.use((response) => {
   const type = response.headers['content-type'] || '';
   if (typeof response.data === 'string' && !type.includes('application/json')) {
