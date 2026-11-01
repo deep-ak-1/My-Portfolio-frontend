@@ -7,7 +7,7 @@ import ProfileForm from '../components/admin/ProfileForm.jsx';
 import ProjectForm from '../components/admin/ProjectForm.jsx';
 import SkillForm from '../components/admin/SkillForm.jsx';
 import ExperienceForm from '../components/admin/ExperienceForm.jsx';
-
+import { api, asArray, getErrorMessage } from '../services/api.js';
 const TABS = [
   ['profile', 'Profile'],
   ['projects', 'Projects'],
@@ -32,11 +32,11 @@ export default function AdminDashboard() {
         api.get('/skills?all=true'),
         api.get('/experience?all=true'),
       ]);
-      setData({
+            setData({
         profile: profile.data,
-        projects: projects.data,
-        skills: skills.data,
-        experience: experience.data,
+        projects: asArray(projects.data),
+        skills: asArray(skills.data),
+        experience: asArray(experience.data),
       });
     } catch (err) {
       setNotice({ type: 'error', text: getErrorMessage(err, 'Could not load dashboard data') });
