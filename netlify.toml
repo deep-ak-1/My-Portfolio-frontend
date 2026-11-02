@@ -1,9 +1,9 @@
-# [build]
-#   command = "npm install && npm run build"
-#   publish = "dist"
 [build]
-  command = ""
-  publish = "."
+  command = "npm install && npm run build"
+  publish = "dist"
+# [build]
+#   command = ""
+#   publish = "."
 
 # Forward all /api requests to the Express API on Render.
 # Replace the URL with your own Render service URL.
